@@ -26,8 +26,8 @@ struct OBJVertex
 	vec2 uvCoord;
 };
 
-std::vector<OBJVertex> meshData;
-std::vector<uint32_t> meshIndices;
+//std::vector<OBJVertex> meshData;
+//std::vector<uint32_t> meshIndices;
 #pragma endregion
 
 bool ProcessLine(const std::string& a_inLine, std::string& a_outKey, std::string& a_outValue)
@@ -164,7 +164,8 @@ int main(int argc, char* argv[])
 			std::vector<vec4> vertexData;
 			std::vector<vec4> normalData;
 			std::vector<vec2> textureData;
-
+			std::vector<OBJVertex> meshData;
+			std::vector<uint32_t> meshIndices;
 			while (!file.eof())
 			{
 				if (std::getline(file, fileLine))
