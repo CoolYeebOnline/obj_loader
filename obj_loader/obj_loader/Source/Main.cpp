@@ -5,6 +5,9 @@
 #include <vector>
 #include <iomanip>
 #include <sstream>
+#include <map>
+
+#pragma region VECTOR DATA
 
 struct vec4
 {
@@ -15,6 +18,17 @@ struct vec2
 {
 	float u, v;
 };
+
+struct OBJVertex
+{
+	vec4 vertex;
+	vec4 normal;
+	vec2 uvCoord;
+};
+
+std::vector<OBJVertex> meshData;
+std::vector<uint32_t> meshIndices;
+#pragma endregion
 
 bool ProcessLine(const std::string& a_inLine, std::string& a_outKey, std::string& a_outValue)
 {
@@ -65,6 +79,58 @@ vec4 processVectorString(const std::string a_data)
 	return vecData;
 }
 
+std::vector<std::string> splitStringAtCharacter(std::string data, char a_character)
+{
+	std::vector<std::string> lineData;
+	std::stringstream iss(data);
+	std::string lineSegment;
+	//providing a character to the getline function splits the line at occurances of that character
+	while (std::getline(iss, lineSegment, a_character))
+	{
+		//push each line segment into a vector
+		lineData.push_back(lineSegment);
+	}
+	return lineData;
+}
+
+OBJVertex processFaceData(std::string a_faceData, std::vector<vec4>& a_vertexArray,
+	std::vector<vec4>& a_normalArray, std::vector<vec2>& a_uvArray)
+{
+	std::vector<std::string> vertexIndices = splitStringAtCharacter(a_faceData, '/');
+	//a simple local structure to hold face triplet data as integer values
+	typedef struct objFaceTriplet { int32_t v,vn,vt; }objFaceTriplet;
+	//instance of objFaceTriplet struct
+	objFaceTriplet ft = { 0, 0, 0 };
+	//parse vertex indices as integer values to look up in vertex/normal/uv array data
+	ft.v = std::stoi(vertexIndices[0]);
+	//if ise is >= 2 then there is additional information outside of vertex data
+	if (vertexIndices.size() >= 2) {
+		//if size of element 1 is greater than 0 then UV coord information present
+		if (vertexIndices[1].size() > 0)
+		{
+			ft.vt = std::stoi(vertexIndices[1]);
+		}
+		//if size is greater than 3 then there is normal data present
+		if (vertexIndices.size() >= 3)
+		{
+			ft.vn = std::stoi(vertexIndices[2]);
+		}
+	}
+	//now that face index values have been processed retrieve actual data from vertex arrays
+	OBJVertex currentVertex;
+	currentVertex.vertex = a_vertexArray[size_t(ft.v) - 1];
+	if (ft.vn != 0)
+	{
+		currentVertex.normal = a_normalArray[size_t(ft.v) - 1];
+	}
+	if (ft.vt != 0)
+	{
+		currentVertex.uvCoord = a_uvArray[size_t(ft.vt) - 1];
+	}
+	return currentVertex;
+}
+
+
 int main(int argc, char* argv[])
 {
 	std::string filename = "obj_models/basic_box.OBJ";
@@ -94,6 +160,7 @@ int main(int argc, char* argv[])
 			//read each line of the file and display to the console
 			std::string fileLine;
 			//while the end of the file (EOF) token has not been read
+			std::map<std::string, int32_t> faceIndexMap;
 			std::vector<vec4> vertexData;
 			std::vector<vec4> normalData;
 			std::vector<vec2> textureData;
@@ -117,10 +184,56 @@ int main(int argc, char* argv[])
 							vertex.w = 1.f; //as this is postional data ensure that w component is set to 1
 							vertexData.push_back(vertex);
 						}
+						if (key == "vn")
+						{
+							vec4 normal = processVectorString(value);
+							normal.w = 0.f; // as this is directional data ensure that w component is set to 0
+							normalData.push_back(normal);
+						}
+						if (key == "vt")
+						{
+							vec4 vec = processVectorString(value);
+							vec2 uvCoord = { vec.x, vec.y };
+						}
+						if (key == "f")
+						{
+							std::vector<std::string> faceComponents = splitStringAtCharacter(value, ' ');
+							std::vector<uint32_t>faceIndices;
+							for (auto iter = faceComponents.begin(); iter != faceComponents.end(); ++iter)
+							{
+								//see if the face has already been processed
+								auto searchKey = faceIndexMap.find(*iter);
+								if (searchKey != faceIndexMap.end())
+								{
+									//we have already processed this vertex
+									faceIndices.push_back((*searchKey).second);
+								}
+								else
+								{
+									OBJVertex vertex = processFaceData(*iter, vertexData, normalData, textureData);
+									meshData.push_back(vertex);
+									uint32_t index = ((uint32_t)meshData.size() - 1);
+									faceIndexMap[*iter] = index;
+									faceIndices.push_back(index);
+								}
+								//now that all triplets have been processed process indexbuffer
+								for (int i = 1; i < faceIndices.size() - 1; i++)
+								{
+									meshIndices.push_back(faceIndices[0]);
+									meshIndices.push_back(faceIndices[i]);
+									meshIndices.push_back(faceIndices[(size_t)i + 1]);
+								}
+
+								
+							}
+						}
 					}
 				}
 			}
-			std::cout << "Processed " << vertexData.size() << " vertices in OBJ File" << std::endl;
+			vertexData.clear();
+			normalData.clear();
+			textureData.clear();
+			std::cout << "Processed " << meshData.size() << " vertices in OBJ Mesh Data" << std::endl;
 		}
 		else
 		{
