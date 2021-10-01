@@ -7,6 +7,8 @@
 #include <sstream>
 #include <map>
 
+std::string g_filePath;
+
 #pragma region VECTOR DATA
 
 struct vec4
@@ -26,8 +28,15 @@ struct OBJVertex
 	vec2 uvCoord;
 };
 
-//std::vector<OBJVertex> meshData;
-//std::vector<uint32_t> meshIndices;
+struct OBJMaterial
+{
+	std::string name;
+	vec4		kA;	//Ambient Light Colour - alpha component stores optical density (Ni)(Refraction Index 0.001 - 10)
+	vec4		kD; //Diffuse Light Colour - alpha component stores dissolve (d)(0-1)
+	vec4		kS; //Specular Light Colour (exponent stored in alpha)
+};
+
+
 #pragma endregion
 
 bool ProcessLine(const std::string& a_inLine, std::string& a_outKey, std::string& a_outValue)
@@ -130,6 +139,137 @@ OBJVertex processFaceData(std::string a_faceData, std::vector<vec4>& a_vertexArr
 	return currentVertex;
 }
 
+void LoadMaterialLibrary(std::string a_mtllib, std::vector<OBJMaterial>& a_materials)
+{
+	std::string matFile = g_filePath + a_mtllib;
+	std::cout << "Attempting to load material file: " << matFile << std::endl;
+	//get an fstream to read in the file data
+	std::fstream file;
+	file.open(matFile, std::ios_base::in | std::ios_base::binary);
+	//test to see if the file has opened incorrectly
+	if (file.is_open())
+	{
+		std::cout << "Material Library Successfully Opened" << std::endl;
+		//success file has been opened, verify contents of file -- ie check that file is not zero length
+		file.ignore(std::numeric_limits<std::streamsize>::max());
+		std::streamsize fileSize = file.gcount();
+		file.clear();
+		file.seekg(0, std::ios_base::beg);
+		if (fileSize == 0)
+		{
+			std::cout << "File contains no data, closing file" << std::endl;
+			file.close();
+		}
+		std::cout << "Material File size: " << fileSize / 1024 << "KB" << std::endl;
+		//variable to store file data as it is read line by line
+		std::string fileLine;
+		//pointer to a material object (the one at the end of the materials vector)
+		OBJMaterial* currentMaterial = nullptr;
+
+		while (!file.eof()) 
+		{
+			if (std::getline(file, fileLine))
+			{
+				std::string key;
+				std::string value;
+				if (ProcessLine(fileLine, key, value))
+				{
+					if (key == "#")//this is a comment line
+					{
+						std::cout << value << std::endl;
+						continue;
+					}
+					if (key == "newmtl")
+					{
+						std::cout << "New Material found: " << value << std::endl;
+						a_materials.push_back(OBJMaterial());
+						currentMaterial = &(a_materials.back());
+						currentMaterial->name = value;
+						continue;
+					}
+					if (key == "Ns")
+					{
+						if (currentMaterial != nullptr)
+						{
+							//NS is guarenteed to be a single float value
+							currentMaterial->kS.w - std::stof(value);
+						}
+						continue;
+					}
+					if (key == "Ka")
+					{
+						if (currentMaterial != nullptr)
+						{
+							//process kA as vetor string
+							float kAd = currentMaterial ->kA.w; //store alpha channel as may contain refractive index
+							currentMaterial->kA = processVectorString(value);
+							currentMaterial->kA.w = kAd;
+						}
+						continue;
+					}
+					if (key == "Kd")
+					{
+						if (currentMaterial != nullptr)
+						{
+							//process kD as vector string
+							float kDa = currentMaterial->kS.w; //store alpha as may contain specular component
+							currentMaterial->kD = processVectorString(value);
+							currentMaterial->kD.w = kDa;
+						}
+						continue;
+					}
+					if (key == "Ks")
+					{
+						if (currentMaterial != nullptr)
+						{
+							//process Ks as vector string
+							float kSa = currentMaterial->kS.w; //store alpha as may contain specular component
+							currentMaterial->kS = processVectorString(value);
+							currentMaterial->kS.w = kSa;
+						}
+						continue;
+					}
+					if (key == "Ke")
+					{
+						//KE is for emissive properties
+						//we will not need to support this for our purposes
+						continue;
+					}
+					if (key == "Ni")
+					{
+						if (currentMaterial != nullptr)
+						{
+							//this is the refractive index of the mesh (how light bends as it passes through the material)
+							//we will store this in the alpha component of the ambient light values (kA)
+							currentMaterial->kA.w = std::stof(value);
+						}
+						continue;
+					}
+					if (key == "d" || key == "Tr") //Transparency/Opacity Tr = 1 -d
+					{
+						if (currentMaterial != nullptr)
+						{
+							//this is the dissolve or alpha value of the material we will store this in the kD alpha channel
+							currentMaterial->kD.w = std::stof(value);
+							if (key == "Tr")
+							{
+								currentMaterial->kD.w = 1.f - currentMaterial->kD.w;
+							}
+						}
+						continue;
+					}
+					if (key == "illum")
+					{
+						//illum describes the illumination model used to light the model.
+						//ignore this for now as we will light the scene our own way
+						continue;
+					}
+				}
+			}
+		}
+		file.close();
+	}
+}
 
 int main(int argc, char* argv[])
 {
@@ -140,6 +280,17 @@ int main(int argc, char* argv[])
 	file.open(filename, std::ios_base::in | std::ios_base::binary);
 	if (file.is_open())
 	{
+		//Get File Path information
+		g_filePath = filename;
+		size_t path_end = g_filePath.find_last_of("/\\");
+		if (path_end != std::string::npos)
+		{
+			g_filePath = g_filePath.substr(0, path_end + 1);
+		}
+		else
+		{
+			g_filePath = "";
+		}
 		std::cout << "Successfully Opened!" << std::endl;
 		//attempt to read the maximum number of bytes available from the file
 		file.ignore(std::numeric_limits<std::streamsize>::max());
@@ -166,6 +317,7 @@ int main(int argc, char* argv[])
 			std::vector<vec2> textureData;
 			std::vector<OBJVertex> meshData;
 			std::vector<uint32_t> meshIndices;
+			std::vector<OBJMaterial> materials;
 			while (!file.eof())
 			{
 				if (std::getline(file, fileLine))
@@ -178,6 +330,12 @@ int main(int argc, char* argv[])
 						if (key == "#") //this is a comment line
 						{
 							std::cout << value << std::endl;
+						}
+						if (key == "mtllib")
+						{
+							std::cout << "Material File: " << value << std::endl;
+							//Load in Material file so that materials can be used as required
+							LoadMaterialLibrary(value, materials);
 						}
 						if (key == "v")
 						{
