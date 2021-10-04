@@ -26,6 +26,11 @@
 *.a
 *.lib
 
+#allow specific files that may be covered by the above rule
+*/obj_models/*.obj
+*/deps/**/libs/**/*.lib
+*/deps/**libs/**/* .pdb
+
 # Executables
 *.exe
 *.out
