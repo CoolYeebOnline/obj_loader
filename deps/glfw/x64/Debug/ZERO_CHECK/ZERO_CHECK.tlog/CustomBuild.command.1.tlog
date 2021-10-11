@@ -1,0 +1,10 @@
+^C:\USERS\YEEB\DOCUMENTS\GITHUB\OBJ_LOADER\CT5036\GLFW\CMAKEFILES\1E9DA1B097456E7E261D20EF850BA36F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/GLFW.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

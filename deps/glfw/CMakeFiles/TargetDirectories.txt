@@ -1,0 +1,4 @@
+C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/CMakeFiles/ALL_BUILD.dir
+C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/glfw.dir
+C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/update_mappings.dir
