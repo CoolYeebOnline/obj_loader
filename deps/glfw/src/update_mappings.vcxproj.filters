@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\CMakeFiles\8b93cd752e7220a9e6b71b6d88973389\update_mappings.rule">
+    <CustomBuild Include="C:\Users\Yeeb\Documents\GitHub\glfw\CMakeFiles\6ff4f7a682393869c80d067954dc64de\update_mappings.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeLists.txt" />
@@ -11,14 +11,14 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="C:\Users\Yeeb\Documents\GitHub\glfw\CMake\GenerateMappings.cmake" />
-    <None Include="C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\CMakeFiles\update_mappings" />
+    <None Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeFiles\update_mappings" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{42AB57AA-78F1-33FC-AEF6-A714DB4C8C29}</UniqueIdentifier>
+      <UniqueIdentifier>{6381D5DD-6FD0-3683-AD21-8630AC94E543}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{41499F68-0190-3596-914C-AD2DE284AAAE}</UniqueIdentifier>
+      <UniqueIdentifier>{4780A51C-59AE-3E95-B897-FE100527CEBD}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

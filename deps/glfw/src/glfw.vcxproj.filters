@@ -75,7 +75,7 @@
     <ClInclude Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\osmesa_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\glfw_config.h">
+    <ClInclude Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\glfw_config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -84,10 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{41499F68-0190-3596-914C-AD2DE284AAAE}</UniqueIdentifier>
+      <UniqueIdentifier>{4780A51C-59AE-3E95-B897-FE100527CEBD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{94B7B37A-A0D4-3615-BCA6-FDD9339B9E8F}</UniqueIdentifier>
+      <UniqueIdentifier>{651A717C-820D-395D-9439-893557F16B09}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

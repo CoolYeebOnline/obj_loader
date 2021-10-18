@@ -22,7 +22,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5B0B9738-AE3D-37A1-9AB9-F0DCADD793F5}</ProjectGuid>
+    <ProjectGuid>{B282FAF7-B863-396F-9973-F893DA189F4E}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
@@ -78,7 +78,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_GLFW_USE_CONFIG_H;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -111,7 +111,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -128,10 +128,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_GLFW_USE_CONFIG_H;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -161,10 +161,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_GLFW_USE_CONFIG_H;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -177,7 +177,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
@@ -193,10 +193,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_GLFW_USE_CONFIG_H;UNICODE;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Yeeb\Documents\GitHub\glfw\include;C:\Users\Yeeb\Documents\GitHub\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,7 +211,7 @@
     <CustomBuild Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeLists.txt">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -220,11 +220,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -233,11 +233,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -246,11 +246,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -259,7 +259,7 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Yeeb\Documents\GitHub\glfw\src\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
@@ -288,11 +288,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\wgl_context.c" />
     <ClCompile Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\egl_context.c" />
     <ClCompile Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\osmesa_context.c" />
-    <ClInclude Include="C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\src\glfw_config.h" />
+    <ClInclude Include="C:\Users\Yeeb\Documents\GitHub\glfw\src\glfw_config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Yeeb\Documents\GitHub\obj_loader\CT5036\glfw\ZERO_CHECK.vcxproj">
-      <Project>{6A1BEE25-E924-33EF-857A-0830C50C9948}</Project>
+    <ProjectReference Include="C:\Users\Yeeb\Documents\GitHub\glfw\ZERO_CHECK.vcxproj">
+      <Project>{EB22C9DF-514C-3963-B03E-5F950D602E45}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

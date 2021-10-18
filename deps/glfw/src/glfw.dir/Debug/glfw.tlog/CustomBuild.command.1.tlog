@@ -1,6 +1,6 @@
 ^C:\USERS\YEEB\DOCUMENTS\GITHUB\GLFW\SRC\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/obj_loader/CT5036/glfw/src/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Yeeb/Documents/GitHub/glfw -BC:/Users/Yeeb/Documents/GitHub/glfw --check-stamp-file C:/Users/Yeeb/Documents/GitHub/glfw/src/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
